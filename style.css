@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Poppins:wght@100;200;400;500&family=Roboto+Mono:wght@100;200;300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  font-family: "Acme", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto Mono", monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titulo {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.weather {
+  border-radius: 8px;
+  background: #e0e0e0;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  padding: 0.5rem;
+  margin-top: 30px;
+}
+
+.poblacion {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.icon {
+  border: none;
+  background-color: #e0e0e0;
+  cursor: pointer;
+}
+
+.icon:hover {
+  background-color: #fff;
+}
