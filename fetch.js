@@ -22,10 +22,7 @@ export const obtenerDatos = async (city) => {
       condition,
       humidity,
       temp_c,
-      wind_dir,
-      wind_kph,
       precip_in,
-      pressure_mb,
       feelslike_c,
     } = current;
     let { icon } = condition;
@@ -38,9 +35,7 @@ export const obtenerDatos = async (city) => {
                       <br></div>
                       <span><strong>Temp:</strong> ${temp_c}º,</span>
                       <span><strong>Sensación:</strong> ${feelslike_c}º</span><br>
-                      <span><strong>Presión:</strong> ${pressure_mb}Pa,</span>
-                      <span><strong>Humedad:</strong> ${humidity}%</span><br>
-                      <span><strong>Viento:</strong> ${wind_kph}Km/h ${wind_dir}</span><br>
+                      <span><strong>Humedad:</strong> ${humidity}%,</span>
                       <span><strong>Lluvia hoy:</strong> ${precip_in}mm</span><br>
                       <img src="${icon}"/>                   
                     </div>
