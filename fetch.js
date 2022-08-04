@@ -1,4 +1,4 @@
-const div = document.querySelector(".container");
+const div = document.querySelector(".app");
 
 const OPTIONS = {
   method: "GET",
@@ -15,7 +15,7 @@ export const obtenerDatos = async (city) => {
       OPTIONS
     );
     const data = await response.json();
-    
+
     // Declaración de variables con los datos obtenidos.
     let { current } = data;
     let {
@@ -34,7 +34,7 @@ export const obtenerDatos = async (city) => {
     div.innerHTML = /*html*/ `<div class="weather">
                       <div class="header">
                       <span class="poblacion">${city}</span>
-                      <button  id="icono" onclick="changeCity()" class="icon"><span class="material-symbols-outlined"> settings </span></button>
+                      <button  title="Elige otra población." type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" id="icono" onclick="changeCity()" class="icon"><span class="material-symbols-outlined"> settings </span></button>
                       <br></div>
                       <span><strong>Temp:</strong> ${temp_c}º,</span>
                       <span><strong>Sensación:</strong> ${feelslike_c}º</span><br>
