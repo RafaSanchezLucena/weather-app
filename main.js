@@ -5,11 +5,11 @@ const btn = document.querySelector(".modal__close");
 const modal = document.querySelector(".modal");
 const input = document.querySelector(".modal__input");
 
-// Carga de datos inicial con la población "Alcoi" por defecto.
+// Carga de datos inicial.
 const cargaInicial = () => {
   try {
-    // Se comprueba si hay datos grabados en la "localStorage" y se cargan los datos, en caso contrario
-    // se muestra el modal para introducir por primera vez el nombre de la población.
+    // Se comprueba si hay datos grabados en la "localStorage", en caso afirmativo se cargan los datos y en caso
+    // contrario se muestra el modal para introducir el nombre de la población.
     let ciudad = JSON.parse(localStorage.getItem("city"));
     obtenerDatos(ciudad.nombre);
     setInterval(obtenerDatos, 300000, ciudad.nombre);
@@ -34,9 +34,9 @@ btn.addEventListener("click", () => {
   if (valor != "" && valor != null) {
     obtenerDatos(poblacion.nombre);
     setInterval(obtenerDatos, 300000, poblacion.nombre);
+    modal.classList.remove("modal--show");
   } else {
     alert("Campo obligatorio");
   }
-  modal.classList.remove("modal--show");
   input.value = "";
 });

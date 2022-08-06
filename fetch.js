@@ -1,4 +1,6 @@
 const div = document.querySelector(".app");
+const modal = document.querySelector(".modal");
+
 
 const OPTIONS = {
   method: "GET",
@@ -15,9 +17,8 @@ export const obtenerDatos = async (city) => {
       OPTIONS
     );
     const data = await response.json();
-
     // Declaración de variables con los datos obtenidos.
-    let { current } = data;
+    let { current, location } = data;
     let {
       condition,
       humidity,
@@ -25,13 +26,17 @@ export const obtenerDatos = async (city) => {
       precip_in,
       feelslike_c,
     } = current;
+    let { region, country} = location;
     let { icon } = condition;
 
     //  Pintamos los datos obtenidos en pantalla.
     div.innerHTML = /*html*/ `<div class="weather">
                       <div class="header">
                       <span class="poblacion">${city}</span>
-                      <button  title="Elige otra población." type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" id="icono" onclick="changeCity()" class="icon"><span class="material-symbols-outlined"> settings </span></button>
+                      <button  title="Elige otra población." type="button" id="icono" onclick="changeCity()" class="icon"><span class="material-symbols-outlined"> settings </span></button><br>
+
+                      <span class="region">${region}</span>
+                      <span class="country">(${country})</span>
                       <br></div>
                       <span><strong>Temp:</strong> ${temp_c}º,</span>
                       <span><strong>Sensación:</strong> ${feelslike_c}º</span><br>
@@ -41,7 +46,6 @@ export const obtenerDatos = async (city) => {
                     </div>
     `;
   } catch (error) {
-    alert("La búsqueda no dio resultado.");
-    console.log(error);
+    modal.classList.add("modal--show");
   }
 };
